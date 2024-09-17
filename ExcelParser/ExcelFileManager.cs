@@ -17,6 +17,12 @@ namespace ExcelParser
             _archiveFilePath = archivePath;
         }
 
+        public ExcelFileManager(string sourcePath)
+        {
+            _sourceFilePath = sourcePath;
+            _archiveFilePath = "none";
+        }
+
         // Loads the Excel file
         public ExcelPackage LoadExcelFile()
         {

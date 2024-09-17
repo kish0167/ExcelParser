@@ -58,8 +58,10 @@
         <Compile Include="DataCleaner.cs" />
         <Compile Include="DateUpdater.cs" />
         <Compile Include="ExcelFileManager.cs" />
+        <Compile Include="ExcelSettings.cs" />
         <Compile Include="Logger.cs" />
         <Compile Include="MonthlyFileUpdater.cs" />
+        <Compile Include="StatisticsFiller.cs" />
         <Compile Include="VehicleFuelStatistics.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
     </ItemGroup>

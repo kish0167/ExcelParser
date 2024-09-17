@@ -6,9 +6,7 @@ namespace ExcelParser
 {
     public class VehicleFuelStatistics
     {
-
         private string _name;
-
         public string Name
         {
             get => _name;
@@ -17,7 +15,7 @@ namespace ExcelParser
 
         private List<int> _refuels;
         private List<int> _travelsDistances;
-        private List<int> _theoryConsumption;
+        private List<double> _theoryConsumptions;
 
         private double _fuelConsumption;
 
@@ -26,7 +24,7 @@ namespace ExcelParser
             _name = " none ";
             _refuels = new List<int>();
             _travelsDistances = new List<int>();
-            _theoryConsumption = new List<int>();
+            _theoryConsumptions = new List<double>();
             _fuelConsumption = 0;
         }
 
@@ -47,23 +45,43 @@ namespace ExcelParser
 
         public void PrintAll()
         {
-            Console.WriteLine(Name);
             for (int i = 0; i < _travelsDistances.Count; i++)
             {
-                Console.WriteLine($"{_travelsDistances[i]}  {_refuels[i]}");
+                Logger.Log("All data in " + _name);
+                Console.WriteLine($"{_travelsDistances[i]}\t{_refuels[i]}");
             }
         }
 
         private void CalculateTheoryConsumption()
         {
-            int distSum = 0;
-            foreach (var d in _travelsDistances)
-            {
-                distSum += d;
-            }
+            double consumptionBuf = 0f;
+            int volumeBuf = 0;
+            int distanceBuf = 0;
+            int lastRefuelIndex = 0;
             
+            for (int i = 0; i < _refuels.Count; i++)
+            {
+                if (_refuels[i] != 0)
+                { 
+                   if (distanceBuf != 0)
+                   {
+                       consumptionBuf = (double)(volumeBuf * 100) / distanceBuf;
+                   }
+
+                   for (int j = 0; j < i-lastRefuelIndex; j++)
+                   {
+                       _theoryConsumptions.Add(consumptionBuf);
+                   }
+                   
+                   lastRefuelIndex = i;
+                   volumeBuf = _refuels[i];
+                   distanceBuf = _travelsDistances[i];
+                }
+                else
+                {
+                    distanceBuf += _travelsDistances[i];
+                }
+            }
         }
-        
-        
     }
 }

@@ -13,7 +13,7 @@ namespace ExcelParser
             foreach (var worksheet in workbook.Worksheets)
             {
                 
-                if (worksheet.Cells[2, 1].Value == null)
+                if (!ExcelSettings.IsVehicleSheet(worksheet))
                 {
                     continue;
                 }
@@ -28,8 +28,7 @@ namespace ExcelParser
                         continue;
                     }
                     
-                    worksheet.Cells[i+5, 2].Value = dateBuf;
-                    
+                    ExcelSettings.DateCells(worksheet)[i,1].Value = dateBuf;
                     dateBuf = dateBuf.AddDays(1);
                     i++;
                 }

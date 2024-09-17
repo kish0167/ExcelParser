@@ -10,11 +10,12 @@ namespace ExcelParser
         {
             foreach (var worksheet in workbook.Worksheets)
             {
-                if (worksheet.Cells[2,1].Value != null)
+                if (!ExcelSettings.IsVehicleSheet(worksheet))
                 {
-                    worksheet.Cells[5, 3, 27, 4].Value = null;
-                    worksheet.Cells[5, 5, 27, 5].Value = "-";
+                    continue;
                 }   
+                ExcelSettings.NumericDataCells(worksheet).Value = null;
+                ExcelSettings.ConstructionSitesCells(worksheet).Value = "-";
             }
         }
     }

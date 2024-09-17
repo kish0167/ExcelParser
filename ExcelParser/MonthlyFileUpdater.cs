@@ -6,22 +6,22 @@ namespace ExcelParser
 {
     public class MonthlyFileUpdater
     {
-        private string _sourceFile ;
-        string archiveFolder = "D:/files/";
+        private string _sourceFile;
+        private string _archiveFolder;
 
-        public MonthlyFileUpdater(string sourceFile)
+        public MonthlyFileUpdater(string sourceFile, string archiveFolder)
         {
             _sourceFile = sourceFile;
+            _archiveFolder = archiveFolder;
         }
         
         public void Update()
         {
             Logger.Log("Starting updating process...");
-
-            ExcelFileManager fileManager = new ExcelFileManager(_sourceFile, archiveFolder + DateTime.Now.ToString() + ".xlsx");
+            string _archieveFile = _archiveFolder + DateTime.Now.ToString("yyyy-MM-dd-hh-mm-ss") + ".xlsx";
+            ExcelFileManager fileManager = new ExcelFileManager(_sourceFile, _archieveFile);
             ExcelPackage package = fileManager.LoadExcelFile();
             ExcelWorkbook workbook = package.Workbook;
-            ExcelWorksheet worksheet = package.Workbook.Worksheets[0];
 
             // Archive data
             fileManager.ArchiveData(package);
