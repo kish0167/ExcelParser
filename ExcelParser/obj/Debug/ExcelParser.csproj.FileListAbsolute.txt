@@ -1,0 +1,11 @@
+D:\Work projects\ExcelParser\ExcelParser\bin\Debug\ExcelParser.exe
+D:\Work projects\ExcelParser\ExcelParser\bin\Debug\ExcelParser.pdb
+D:\Work projects\ExcelParser\ExcelParser\bin\Debug\EPPlus.dll
+D:\Work projects\ExcelParser\ExcelParser\bin\Debug\EPPlus.Interfaces.dll
+D:\Work projects\ExcelParser\ExcelParser\bin\Debug\EPPlus.System.Drawing.dll
+D:\Work projects\ExcelParser\ExcelParser\bin\Debug\EPPlus.xml
+D:\Work projects\ExcelParser\ExcelParser\obj\Debug\ExcelParser.csproj.AssemblyReference.cache
+D:\Work projects\ExcelParser\ExcelParser\obj\Debug\ExcelParser.csproj.CoreCompileInputs.cache
+D:\Work projects\ExcelParser\ExcelParser\obj\Debug\ExcelParser.csproj.CopyComplete
+D:\Work projects\ExcelParser\ExcelParser\obj\Debug\ExcelParser.exe
+D:\Work projects\ExcelParser\ExcelParser\obj\Debug\ExcelParser.pdb
