@@ -23,6 +23,28 @@ namespace ExcelParser
             return worksheet.Cells[5, 2, 27, 2];
         }
         
+        public static ExcelRange TravelsDistancesCells(ExcelWorksheet worksheet)
+        {
+            return worksheet.Cells[5, 6, 27, 6];
+        }
+        public static ExcelRange RefuelsDataCells(ExcelWorksheet worksheet)
+        {
+            return worksheet.Cells["D5:D27"];
+        }
+        
+        public static ExcelRange ConsumptionDataCells(ExcelWorksheet worksheet)
+        {
+            return worksheet.Cells[5, 9, 27, 9];
+        }
+        
+        public static ExcelRange NameCell(ExcelWorksheet worksheet)
+        {
+            return worksheet.Cells["A2"];
+        }
+        
+        
+
+        public const int Rows = 23;
         
         public static bool IsVehicleSheet(ExcelWorksheet worksheet)
         {

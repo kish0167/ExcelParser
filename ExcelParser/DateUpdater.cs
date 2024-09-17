@@ -28,7 +28,7 @@ namespace ExcelParser
                         continue;
                     }
                     
-                    ExcelSettings.DateCells(worksheet)[i,1].Value = dateBuf;
+                    ExcelSettings.DateCells(worksheet).TakeSingleCell(i,0).Value = dateBuf;
                     dateBuf = dateBuf.AddDays(1);
                     i++;
                 }

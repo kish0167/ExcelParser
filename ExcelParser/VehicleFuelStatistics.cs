@@ -13,34 +13,37 @@ namespace ExcelParser
             set => _name = value;
         }
 
-        private List<int> _refuels;
-        private List<int> _travelsDistances;
+        private List<double> _refuels;
+        private List<double> _travelsDistances;
         private List<double> _theoryConsumptions;
+
+        public List<double> TheoryConsumptions => _theoryConsumptions;
 
         private double _fuelConsumption;
 
         public VehicleFuelStatistics()
         {
             _name = " none ";
-            _refuels = new List<int>();
-            _travelsDistances = new List<int>();
+            _refuels = new List<double>();
+            _travelsDistances = new List<double>();
             _theoryConsumptions = new List<double>();
             _fuelConsumption = 0;
         }
 
-        public void AddRefuel(int value)
+        public double FuelConsumption
+        {
+            get => _fuelConsumption;
+            set => _fuelConsumption = value;
+        }
+
+        public void AddRefuel(double value)
         {
             _refuels.Add(value);
         }
         
-        public void AddTravel(int value)
+        public void AddTravel(double value)
         {
             _travelsDistances.Add(value);
-        }
-
-        public void SetFuelConsumption(double value)
-        {
-            _fuelConsumption = value;
         }
 
         public void PrintAll()
@@ -52,11 +55,11 @@ namespace ExcelParser
             }
         }
 
-        private void CalculateTheoryConsumption()
+        public void CalculateTheoryConsumption()
         {
             double consumptionBuf = 0f;
-            int volumeBuf = 0;
-            int distanceBuf = 0;
+            double volumeBuf = 0;
+            double distanceBuf = 0;
             int lastRefuelIndex = 0;
             
             for (int i = 0; i < _refuels.Count; i++)
@@ -65,7 +68,7 @@ namespace ExcelParser
                 { 
                    if (distanceBuf != 0)
                    {
-                       consumptionBuf = (double)(volumeBuf * 100) / distanceBuf;
+                       consumptionBuf = volumeBuf * 100 / distanceBuf;
                    }
 
                    for (int j = 0; j < i-lastRefuelIndex; j++)
