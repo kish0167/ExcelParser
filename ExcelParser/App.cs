@@ -9,13 +9,16 @@ namespace ExcelParser
     {
         public static void Main(string[] args)
         {
-            MonthlyFileUpdater updater = new MonthlyFileUpdater("D:/files/Учет топлива 0.3.xlsx", "D:/files/");
+            ExcelSettings.LoadSettings();
+            
+            MonthlyFileUpdater updater = new MonthlyFileUpdater("D:/files/Учет топлива 0.4.xlsx", "D:/files/");
             //updater.Update();
 
             StatisticsFiller statisticsFiller = new StatisticsFiller("D:/files/Учет топлива 0.4.xlsx");
             statisticsFiller.FillStatistics();
             
-            
+            Console.Beep();
+            Console.ReadKey();
         }
         
     }

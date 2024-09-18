@@ -55,18 +55,22 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="App.cs" />
-        <Compile Include="DataCleaner.cs" />
-        <Compile Include="DateUpdater.cs" />
-        <Compile Include="ExcelFileManager.cs" />
-        <Compile Include="ExcelSettings.cs" />
-        <Compile Include="Logger.cs" />
-        <Compile Include="MonthlyFileUpdater.cs" />
-        <Compile Include="StatisticsFiller.cs" />
-        <Compile Include="VehicleFuelStatistics.cs" />
+        <Compile Include="Excel\DataCleaner.cs" />
+        <Compile Include="Excel\DateUpdater.cs" />
+        <Compile Include="Excel\ExcelFileManager.cs" />
+        <Compile Include="Excel\ExcelSettings.cs" />
+        <Compile Include="Excel\MonthlyFileUpdater.cs" />
+        <Compile Include="Excel\StatisticsFiller.cs" />
+        <Compile Include="Internal\VehicleFuelStatistics.cs" />
+        <Compile Include="Utility\Logger.cs" />
+        <Compile Include="Utility\TxtHandler.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
     </ItemGroup>
     <ItemGroup>
       <None Include="packages.config" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="BelTransSat\" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

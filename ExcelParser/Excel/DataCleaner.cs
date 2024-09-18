@@ -15,6 +15,7 @@ namespace ExcelParser
                 }   
                 ExcelSettings.NumericDataCells(worksheet).Value = null;
                 ExcelSettings.ConstructionSitesCells(worksheet).Value = "-";
+                ExcelSettings.ConsumptionDataCells(worksheet).Value = 0;
             }
         }
     }
